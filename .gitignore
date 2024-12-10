@@ -1,0 +1,63 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Icon must end with two \r
+Icon\r\r
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Logs
+*.log
+
+# Dependency directories
+jspm_packages/
+bower_components/
+
+# Testing
+coverage/
+*.lcov
+
+# Environment variable files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.​⬤
+
+#answers
+answers.md
+answers.css
+answers.htm
+answers.js
+answers.test.js
+
+#python
+*.ipynb
+*.pyc
+__pycache__/
+.pytest_cache/
+.coverage
+answer.py
+myenv/
