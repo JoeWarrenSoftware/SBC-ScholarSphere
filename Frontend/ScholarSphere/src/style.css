@@ -1,23 +1,35 @@
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
+    font-size:medium ;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: rgb(146, 144, 144); 
 }
 
 header {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
+    background-color: white;
+    color: grey;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:1rem;
+    padding: 20px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 header h1 {
+    color: black;
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 4rem;
+    padding: 20px;
+}
+
+header h2 {
+    color: grey;
+    margin: 0;
+    font-size: 2rem;
+    padding: 0px;
 }
 
 header nav {
@@ -88,9 +100,7 @@ div {
     padding: 20px;
 }
 
-h2 {
-    margin-top: 0;
-}
+
 
 ul {
     list-style: none;
@@ -104,21 +114,22 @@ li {
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
-.card {
+.blog {
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     padding: 16px;
     background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    margin: 4rem;
 }
 
-.card:hover {
-    transform: translateY(-5px);
+.blog:hover {
+    transform: translateY(-10px);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-.card-title {
+.blog-title {
     font-size: 1.25rem;
     font-weight: bold;
     margin-bottom: 8px;
@@ -135,6 +146,7 @@ li {
     align-items: center;
     margin-top: 16px;
 }
+
 
 .course-list {
     display: grid;
@@ -170,3 +182,44 @@ li {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
 }
+
+/* .header-logo {
+
+
+}
+
+
+.footer-copywrite {
+
+
+}
+
+.footer {
+
+
+}
+
+.blog-title {
+
+
+}
+
+.blog-createdDate {
+
+
+}
+
+.blog-modifiedDate {
+
+
+}
+
+.blog-body {
+
+
+}
+
+.blog-likeCount {
+
+
+} */
