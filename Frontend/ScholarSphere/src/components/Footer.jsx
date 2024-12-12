@@ -3,8 +3,8 @@ import React from 'react';
 const Footer = () => {
 
   return (
-    <footer>
-      <h1>Scholar Sphere Copyright</h1>
+    <footer className="footer">
+      <h1 className="footer-copyright">Scholar Sphere © 2024</h1>
     </footer>
   );
 };

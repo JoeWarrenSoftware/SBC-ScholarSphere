@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import mockAxios from './mock/api';
+import mockAxios from './mock/mockApi';
 
 const api = axios.create({
   baseURL: 'http://localhost:8000',

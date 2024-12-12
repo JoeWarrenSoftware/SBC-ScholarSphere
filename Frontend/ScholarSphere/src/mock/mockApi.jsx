@@ -1,22 +1,22 @@
-import courses from './courses.json';
+import blogs from './blogs.json';
 
 const get = (url, params) => {
 
    // if the url starts /api/course then a number return a random course from the courses.json file
     if (url.startsWith("/api/courses/")) {
         const id = url.split("/").pop();
-        const course = courses.find((course) => course.id === parseInt(id));
+        const blog = blogs.find((blog) => blog.id === parseInt(id));
         return Promise.resolve({
-            "data": course,
+            "data": blog,
         });
     }
 
   switch (url) {
     
-    case "/api/courses":
+    case "/api/blogs":
       
       return Promise.resolve({
-        "data": courses,
+        "data": blogs,
       });
     default:
       return Promise.resolve({ "data": [] });
@@ -47,19 +47,6 @@ const post = (url, params) => {
 };
 
 const put = (url, params) => {
-    /*
-  switch (url) {
-    case "users/":
-      return Promise.resolve({
-        data: data.putUsersData,
-      });
-    case "https://api.github.com/users/fl1jason/followers":
-      return Promise.resolve({
-        data: data.getFollowersData,
-      });
-    default:
-      return Promise.resolve({ data: [] });
-  }*/
 };
 
 const mockAxios = {
