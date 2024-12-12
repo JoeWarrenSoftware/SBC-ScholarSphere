@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <header className="header">
-      <img className="header-logo" alt="Logo" src="/assets/Logo1.png" style={{ width: '10%' }} />
+      <img className="header-logo" alt="Logo" src="/assets/Logo10.png" style={{ width: '10%' }} />
       <div>
         <h1>Scholar Sphere</h1>
         <h2>The blogging site for academics</h2>
