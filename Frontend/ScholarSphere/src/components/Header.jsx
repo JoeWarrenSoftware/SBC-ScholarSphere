@@ -19,10 +19,12 @@ const Header = () => {
 
   return (
     <header className="header">
-      <img className="header-logo" alt="Logo" src="/assets/Logo10.png" style={{ width: '10%' }} />
+      <div className="logo-container"> 
+      <img  className="header-logo" alt="Logo" src="/assets/Logo10.png" style={{ width: '40%' }} />
+      </div>
       <div>
         <h1>Scholar Sphere</h1>
-        <h2>The blogging site for academics</h2>
+        <h2>THE BLOGGING SITE FOR ACADEMICS</h2>
       </div>
       <nav>
         <Link to="/">All Blogs</Link>

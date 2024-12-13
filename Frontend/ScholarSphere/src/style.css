@@ -1,61 +1,89 @@
 /* General Styles */
+@font-face {
+    font-family:"BlogHeader";
+    src: url("/assets/AlegreyaSans-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
 body {
-    font-family: Arial, sans-serif;
+    font-family:"BlogHeader", sans-serif;
     font-size:medium ;
     margin: 0;
     padding: 0;
-    background-color: rgb(146, 144, 144); 
+    background-color: rgb(253, 251, 251); 
+    width: 100%;
 }
 
 header {
-    background-color: white;
-    color: grey;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size:1rem;
-    padding: 20px 20px;
     display: flex;
+    background-color: #122620;
+    padding: 20px 20px;
+    align-items: flex-start;
     justify-content: space-between;
-    align-items: center;
+    width: 100%;
 }
 
+.header-logo {
+    padding-left: 1rem;
+}
+
+.logo-container {
+    width: 25%;
+    height: fit-content;
+    background-color: #122620;
+}
+
+
 header h1 {
-    color: black;
+    color: #c3d7e9;
+    font-family: "BlogHeader", Arial, Helvetica, sans-serif;
     margin: 0;
     font-size: 4rem;
-    padding: 20px;
+    padding: 5px;
+    justify-content: center;
 }
 
 header h2 {
-    color: grey;
+    color: rgb(248, 248, 248);
     margin: 0;
-    font-size: 2rem;
-    padding: 0px;
+    font-size: 1.25rem;
+    padding: 5px;
 }
 
 header nav {
     display: flex;
     gap: 15px;
+    width: 25%;
 }
 
 header nav a,
 header nav button {
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
+    align-items: flex-start;
+    background-color: #c3d7e9;
+    color: rgb(0, 0, 0);
+    font-size: 1.25rem;
     padding: 5px 10px;
-    border: none;
-    background: none;
-    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+    text-decoration: none;
 }
 
 header nav button {
-    background-color: #f00;
-    border-radius: 5px;
-}
+    display: flex;
+    background-color: rgb(255, 231, 18);
+    color: rgb(0, 0, 0);
+    font-size: 1.25rem;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-top: 0.5rem;
+  }
 
 header nav a:hover,
 header nav button:hover {
-    text-decoration: underline;
+    cursor: pointer;
+    color:rgb(255, 251, 24);
 }
 
 /* Form Styles */
@@ -95,8 +123,174 @@ form button:hover {
     background-color: #555;
 }
 
+
+
+
+.blog {
+    
+    border: 1px solid #e0e0e0;
+    font-size: larger;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #ffffff;
+    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    margin: 4rem;
+}
+
+.blog:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.blog-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: black;
+   
+}
+
+
+/* .footer-copywrite {
+
+
+}
+
+.footer {
+
+
+} */
+
+/* 
+ .blog-title {
+    font-size: 45px;
+    
+    padding-top: 1.5rem;
+    
+}  */
+
+.blog-title:hover {
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 1em;
+    color: #7cb3e4;
+    cursor: pointer;
+
+} 
+
+.blog-info {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    font-size: medium;
+
+}
+
+.blog-author {
+    display: flex;
+    flex-wrap: wrap;
+    color: #2d9ab6;
+    font-weight: bold;
+
+}
+
+.blog-author:hover {
+    color: #7cb3e4;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.blog-createdDate {
+    display: flex;
+    width: fit-content;
+    justify-content: center;
+    font-weight: bold;
+    
+ }
+
+.blog-modifiedDate {
+    display: flex;
+    width: fit-content;
+    justify-content: center;
+    font-weight: bold;
+}
+
+
+
+.blog-body {
+    max-height: fit-content;
+    
+
+
+}
+
+.blog-likeCount {
+    display: flex;
+    justify-content: right;
+    padding: 2rem;
+    font-weight: bold;
+
+
+
+} 
+
+
+
+
+
+/* .card-description {
+    font-size: 1rem;
+    color: #666;
+} */
+/* .card-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+} */
+
+
+/* .course-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+} */
+
+/* .button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}  */
+
+/* .button:hover {
+    background-color: #0056b3;
+} */
+
+/* .mt-5 {
+    margin-top: 5px;
+} */
+
+/* .delegate-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+} */
+
+
 /* Course List Styles */
-div {
+/* div {
     padding: 20px;
 }
 
@@ -113,113 +307,12 @@ li {
     margin-bottom: 10px;
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-}
-.blog {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 16px;
-    background-color: #fff;
-    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    margin: 4rem;
-}
-
-.blog:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
-
-.blog-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #333;
-}
-
-.card-description {
-    font-size: 1rem;
-    color: #666;
-}
-.card-options {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 16px;
-}
-
-
-.course-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.button:hover {
-    background-color: #0056b3;
-}
-
-.mt-5 {
-    margin-top: 5px;
-}
-
-.delegate-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-/* .header-logo {
-
-
-}
-
-
-.footer-copywrite {
-
-
-}
-
-.footer {
-
-
-}
-
-.blog-title {
-
-
-}
-
-.blog-createdDate {
-
-
-}
-
-.blog-modifiedDate {
-
-
-}
-
-.blog-body {
-
-
-}
-
-.blog-likeCount {
-
-
 } */
+
+
+
+
+
+
+
+
