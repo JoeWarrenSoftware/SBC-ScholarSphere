@@ -17,7 +17,6 @@ class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         profile_data = validated_data.pop('profile', {})
         user = User.objects.create_user(
-            username=validated_data['email'],
             email= validated_data['email'],
             password= validated_data['password']
         )
@@ -27,8 +26,11 @@ class UserSerializer(serializers.ModelSerializer):
     
 
 # get a profile
-
 class ProfileSerializer(serializers.ModelSerializer):
+
+    email = serializers.EmailField(source='user.email', read_only=True)
+    username = serializers.CharField(source='user.username', read_only=True)
+
     class Meta:
         model = Profile
-        fields = ('user', 'first_name', 'last_name', 'department', 'bio', 'twitter', 'facebook', 'likedIn', 'profile_pic_url')
+        fields = ('username', 'email', 'first_name', 'last_name', 'department', 'bio', 'twitter', 'facebook', 'linkedIn', 'profile_pic_url')

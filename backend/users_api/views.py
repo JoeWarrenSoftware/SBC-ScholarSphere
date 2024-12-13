@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.status import HTTP_201_CREATED, HTTP_400_BAD_REQUEST
+from django.contrib.auth.models import User
 
 from .serializer import UserSerializer, ProfileSerializer
 
@@ -22,20 +24,22 @@ class RegistrationView(APIView):
 # get a profil information
 
 class ProfileView(APIView):
-    def get(self, request):
-        profile = Profile.objects.all()
-        serializer = ProfileSerializer(profile, many=True)
-        return Response({
-            "status": True,
-            "data": serializer.data
-        })
+
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, uName=None):
+
+        try: 
+            # get a user id using a passed username
+            userId = User.objects.get(username=uName)
+
+            
+            # get the profile using the found user Id
+            profile = Profile.objects.get(user_id=userId)
 
 
-# class ProfileView(APIView):
-#     def get(self, request):
-#         profile = Profile.objects.get(user=request.user)
-#         serializer = ProfileSerializer(profile)
-#         return Response({
-#             "status": True,
-#             "data": serializer.data
-#         })
+            serializer = ProfileSerializer(profile)
+            return Response(serializer.data, status=200)
+
+        except Profile.DoesNotExist:
+            return Response({'error': 'Profile not found'})    

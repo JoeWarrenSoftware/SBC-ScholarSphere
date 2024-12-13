@@ -18,7 +18,7 @@ class RegistrationForm(UserCreationForm):
     def save(self, commit= True):
         user = super().save(commit= False)
         # using email as a username to login
-        user.username = self.cleaned_data['email']
+        # user.username = self.cleaned_data['email']
         user.email = self.cleaned_data['email']
         if commit:
             user.save()
@@ -35,7 +35,7 @@ class Profile(models.Model):
     bio = models.TextField(blank=True, null=True)
     twitter = models.URLField(blank=True, null=True)
     facebook = models.URLField(blank=True, null=True)
-    likedIn = models.URLField(blank=True, null=True)
+    linkedIn = models.URLField(blank=True, null=True)
     profile_pic_url = models.URLField(blank=True, null=True)
 
     def __str__(self):
