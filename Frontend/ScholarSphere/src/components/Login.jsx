@@ -5,12 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import { useSession } from '../contexts/SessionContext';
 
 const defaultUser = {
-  username: '',
+  email: '',
   password: '',
 };
 
 const Login = () => {
-  const [userName, setUserName] = useState(defaultUser.username);
+  const [email, setEmail] = useState(defaultUser.username);
   const [password, setPassword] = useState(defaultUser.password);
   const navigate = useNavigate();
 
@@ -19,7 +19,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post('/api/login', { username: userName, password: password });
+      const response = await api.post('/api/login', { email: email, password: password });
       const data = response.data;
 
       // Update the user in the context

@@ -3,7 +3,7 @@ import blogs from './blogs.json';
 const get = (url, params) => {
 
    // if the url starts /api/course then a number return a random course from the courses.json file
-    if (url.startsWith("/api/courses/")) {
+    if (url.startsWith("/api/blogs/")) {
         const id = url.split("/").pop();
         const blog = blogs.find((blog) => blog.id === parseInt(id));
         return Promise.resolve({
@@ -29,8 +29,7 @@ const post = (url, params) => {
         return Promise.resolve({
             "data": {
                 id: 1,
-                username: "admin",
-                email: "admin@test.com",
+                email: params.email,
                 token: "123456789",
             },
         });
@@ -38,7 +37,6 @@ const post = (url, params) => {
         return Promise.resolve({
             "data": {
                 id: 1,
-                username: "admin",
                 email: "admin@test.com",
                 token: "123456789",
             },

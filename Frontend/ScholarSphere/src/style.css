@@ -1,3 +1,53 @@
+/* Header section */
+
+.header {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header-logo {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Footer section */
+
+.footer {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-copyright {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Blog section */
+
+.blog {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.blog-title {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.blog-author {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.blog-createdDate {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.blog-modifiedDate {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.blog-body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.blog-likeCount {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
@@ -182,44 +232,3 @@ li {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
 }
-
-/* .header-logo {
-
-
-}
-
-
-.footer-copywrite {
-
-
-}
-
-.footer {
-
-
-}
-
-.blog-title {
-
-
-}
-
-.blog-createdDate {
-
-
-}
-
-.blog-modifiedDate {
-
-
-}
-
-.blog-body {
-
-
-}
-
-.blog-likeCount {
-
-
-} */
