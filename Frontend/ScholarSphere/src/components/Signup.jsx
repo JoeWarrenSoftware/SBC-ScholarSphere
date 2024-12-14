@@ -4,9 +4,10 @@ import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   const [email, setEmail] = useState('');
-  const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -35,21 +36,29 @@ const Signup = () => {
     }
 
     try {
-      await api.post('/api/signup', { username: userName, email: email, password: password, password2: password2 });
-      navigate('/login');
+      await api.post('/api/signup', { email: email, password: password, password2: password2 });
+      navigate('/profile');
     } catch (error) {
       console.error('Signup failed', error);
     }
   };
 
   return (
+    <>
     <form onSubmit={handleSubmit}>
-      <h2>Signup</h2>
+      <h2>Account Registration</h2>
       <input
-        type="text"
-        placeholder="Username"
-        value={userName}
-        onChange={(e) => setUserName(e.target.value)}
+        type="string"
+        placeholder="First Name"
+        value={firstName}
+        onChange={(e) => setFirstName(e.target.value)}
+        required
+      />
+      <input
+        type="string"
+        placeholder="Last Name"
+        value={lastName}
+        onChange={(e) => setLastName(e.target.value)}
         required
       />
       <input
@@ -74,8 +83,13 @@ const Signup = () => {
         required
       />
       {error && <p>{error}</p>}
-      <button type="submit">Signup</button>
+      <button type="submit">Create Account</button>
     </form>
+    <div>
+      <label>Already registered?</label>
+      <a href="/login">Login Here</a>
+    </div>
+    </>
   );
 };
 
