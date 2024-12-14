@@ -1,7 +1,5 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
 import { useSession } from '../contexts/SessionContext';
 
 const Header = () => {
@@ -10,6 +8,33 @@ const Header = () => {
   const token = localStorage.getItem('authToken');
 
   const { user } = useSession();
+
+  /* Light/Dark Mode setting */
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      setIsDarkMode(true);
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }, []);
+  
+  const toggleTheme = () => {
+    setIsDarkMode(prevMode => {
+      const newMode = !prevMode;
+      if (newMode) {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light');
+      }
+      return newMode;
+    });
+  };
 
   const handleLogout = () => {
     localStorage.removeItem('authToken');
@@ -39,6 +64,19 @@ const Header = () => {
             <Link to="/signup">Create Account</Link>
           </>
         )}
+        <div className="theme-switcher">
+        <label>🌞</label>
+        <label>🌙</label>
+          <label htmlFor="theme-switch" className="switch">
+            <input 
+              type="checkbox" 
+              id="theme-switch" 
+              checked={isDarkMode}
+              onChange={toggleTheme}
+            />
+            <span className="slider round"></span>
+          </label>
+        </div>
       </nav>
     </header>
   );
