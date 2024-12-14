@@ -52,6 +52,7 @@ const Header = () => {
         <h2>THE BLOGGING SITE FOR ACADEMICS</h2>
       </div>
       <nav>
+      <div className="nav-buttons">
         <Link to="/">All Blogs</Link>
         {token ? (
           <>
@@ -64,6 +65,7 @@ const Header = () => {
             <Link to="/signup">Create Account</Link>
           </>
         )}
+        </div>
         <div className="theme-switcher">
         <label>🌞</label>
         <label>🌙</label>

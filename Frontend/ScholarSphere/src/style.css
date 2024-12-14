@@ -6,6 +6,8 @@ color: var(--link-color);
 
 /* Light mode (default) */
 :root {
+    
+    text-align: center;
     --background-color: #ffffff; 
     --text-color: #000000;
     --link-color: #007bff;
@@ -19,7 +21,7 @@ color: var(--link-color);
   }
 
 /* Header section */
-
+/* 
 .header {
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -30,8 +32,11 @@ color: var(--link-color);
 
 /* Style for the theme switcher */
 .theme-switcher {
-    display: inline-flex;
-    align-items: center;
+    display: flex;
+    justify-content:right;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+    gap: 0.5rem;
   }
   
   /* Style the switch - hide default checkbox */
@@ -94,7 +99,7 @@ color: var(--link-color);
     background-color: #aaa;
   }
 
-/* Footer section */
+/* Footer section 
 
 .footer {
     font-family: Arial, Helvetica, sans-serif;
@@ -104,7 +109,7 @@ color: var(--link-color);
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Blog section */
+/* Blog section 
 
 .blog {
     font-family: Arial, Helvetica, sans-serif;
@@ -132,15 +137,10 @@ color: var(--link-color);
 
 .blog-likeCount {
     font-family: Arial, Helvetica, sans-serif;
-}
+} */
 
 /* General Styles */
-#root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
-  }
+
 
 
 @font-face {
@@ -200,6 +200,15 @@ header nav {
     display: flex;
     gap: 15px;
     width: 25%;
+    flex-wrap: wrap;
+    justify-content: right;
+}
+
+.nav-buttons {
+    display:flex;
+    gap: 1em;
+    
+
 }
 
 header nav a,
@@ -212,7 +221,10 @@ header nav button {
     border-radius: 5px;
     margin-top: 0.5rem;
     text-decoration: none;
+    max-width: 4rem;
 }
+
+
 
 header nav button {
     display: flex;
@@ -222,6 +234,7 @@ header nav button {
     padding: 5px 10px;
     border-radius: 15px;
     margin-top: 0.5rem;
+    max-width: 1rem;
   }
 
 header nav a:hover,
@@ -306,13 +319,13 @@ form button:hover {
 
 } */
 
-/* 
+
  .blog-title {
     font-size: 45px;
     
     padding-top: 1.5rem;
     
-}  */
+} 
 
 .blog-title:hover {
     font-size: 45px;
@@ -376,9 +389,6 @@ form button:hover {
     justify-content: right;
     padding: 2rem;
     font-weight: bold;
-
-
-
 } 
 
 
