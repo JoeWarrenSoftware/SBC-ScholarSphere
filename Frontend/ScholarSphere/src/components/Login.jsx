@@ -37,13 +37,14 @@ const Login = () => {
   };
 
   return (
+    <>
     <form onSubmit={handleSubmit}>
       <h2>Login</h2>
       <input
-        type="text"
-        placeholder="Username"
-        value={userName}
-        onChange={(e) => setUserName(e.target.value)}
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
         required
       />
       <input
@@ -55,6 +56,11 @@ const Login = () => {
       />
       <button type="submit">Login</button>
     </form>
+    <div>
+      <label>Need an account?</label>
+      <a href='/signup'>Create Account Here</a>
+    </div>
+    </>
   );
 };
 
