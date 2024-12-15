@@ -20,7 +20,7 @@ class SignUpSerializer(serializers.ModelSerializer):
     def validate_email(self, value):
         if not value:
             raise serializers.ValidationError("Email is required.")
-        if User.objects.fileter(email=value).exists():
+        if User.objects.filter(email=value).exists():
             raise serializers.ValidationError("The email is already exists.")
         return value
     
@@ -59,3 +59,9 @@ class ProfileSerializer(serializers.ModelSerializer):
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
     password = serializers.CharField()
+
+
+# update user/profile
+# class UpdateUserSerializer(serializers.ModelSerializer):
+#     email = serializers.EmailField(required=True)
+
