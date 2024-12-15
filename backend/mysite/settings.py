@@ -51,10 +51,6 @@ MIDDLEWARE = [
     
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # Your React app's URL
-]
-
 ROOT_URLCONF = 'mysite.urls'
 
 TEMPLATES = [
