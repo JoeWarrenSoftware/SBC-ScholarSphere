@@ -1,17 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.status import HTTP_201_CREATED, HTTP_400_BAD_REQUEST
 from rest_framework.authtoken.models import Token
 from rest_framework.decorators import api_view
+from rest_framework.generics import UpdateAPIView
 from django.contrib.auth.models import User
+
 
 from drf_yasg.utils import swagger_auto_schema
 from django.contrib.auth import authenticate
 
 
-from .serializer import SignUpSerializer, ProfileSerializer, LoginSerializer
+from .serializer import SignUpSerializer, ProfileSerializer, LoginSerializer, UpdateUserSerializer
 
 from .models import Profile
 
@@ -50,7 +52,16 @@ class ProfileView(APIView):
 
         except Profile.DoesNotExist:
             return Response({'error': 'Profile not found'})    
-        
+
+# update profile
+
+class UpdateProfileView(UpdateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UpdateUserSerializer
+
+    def get_object(self):
+        return get_object_or_404(User, username=self.kwargs['username'])
+
 # login
 
 @swagger_auto_schema(method='post', request_body=LoginSerializer)
