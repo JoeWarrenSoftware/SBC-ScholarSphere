@@ -36,9 +36,10 @@ class SignUpSerializer(serializers.ModelSerializer):
             password= validated_data['password']
         )
 
-        profile = Profile.objects.create(user=user)
+        profile, created = Profile.objects.get_or_create(user=user)
         profile.first_name = first_name
         profile.last_name = last_name
+        profile.save()
 
         return user
     
