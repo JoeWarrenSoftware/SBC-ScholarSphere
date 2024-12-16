@@ -23,7 +23,7 @@ const BlogList = () => {
 
   return (
     <div>
-      <h2>All Blogs</h2>
+      <h2>ALL BLOGS</h2>
       <div className="blog-list">
         {blogs.map((blog) => (
           <BlogPost key={blog.id} blog={blog} />

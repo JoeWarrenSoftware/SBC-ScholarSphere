@@ -45,7 +45,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="logo-container"> 
-      <img  className="header-logo" alt="Logo" src="/assets/Logo10.png" style={{ width: '40%' }} />
+      <img  className="header-logo" alt="Logo" src="/assets/Logo12.png"  />
       </div>
       <div>
         <h1>Scholar Sphere</h1>
