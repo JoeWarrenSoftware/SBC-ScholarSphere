@@ -8,7 +8,7 @@ const BlogList = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await api.get('/api/blogs');
+        const response = await api.get('/post/');
 
         console.log('blogs', response.data);
 
