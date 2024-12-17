@@ -53,7 +53,7 @@ const ProfileUser = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className="profile" onSubmit={handleSubmit}>
       <h2>My Profile</h2>
       <input
         type="string"

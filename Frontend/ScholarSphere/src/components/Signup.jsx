@@ -46,7 +46,7 @@ const Signup = () => {
 
   return (
     <>
-    <form onSubmit={handleSubmit}>
+    <form className="signup" onSubmit={handleSubmit}>
       <h2>Account Registration</h2>
       <input
         type="string"

@@ -235,7 +235,7 @@ form {
     max-width: 400px;
     margin: 50px auto;
     padding: 20px;
-    background-color: white;
+    background-color: var(--blog-background);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
 }
@@ -256,15 +256,15 @@ form input {
 form button {
     width: 100%;
     padding: 10px;
-    background-color: #333;
-    color: white;
+    background-color: var(--blog-font-color);
+    color: var(--blog-background);
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 form button:hover {
-    background-color: #555;
+    background-color: var(--blog-font-color);
 }
 
 /* Main blog styles */
