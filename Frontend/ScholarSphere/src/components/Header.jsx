@@ -68,7 +68,6 @@ const Header = () => {
         </div>
         <div className="theme-switcher">
         <label>🌞</label>
-        <label>🌙</label>
           <label htmlFor="theme-switch" className="switch">
             <input 
               type="checkbox" 
@@ -78,6 +77,7 @@ const Header = () => {
             />
             <span className="slider round"></span>
           </label>
+          <label>🌙</label>
         </div>
       </nav>
     </header>

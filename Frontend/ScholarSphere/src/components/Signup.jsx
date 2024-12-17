@@ -3,6 +3,7 @@ import api from '../api';
 import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
@@ -36,7 +37,7 @@ const Signup = () => {
     }
 
     try {
-      await api.post('/api/signup', { email: email, password: password, password2: password2 });
+      await api.post('/api/signup', { username: username, email: email, password: password, first_name: firstName, last_name: lastName});
       navigate('/profile');
     } catch (error) {
       console.error('Signup failed', error);
@@ -47,6 +48,13 @@ const Signup = () => {
     <>
     <form onSubmit={handleSubmit}>
       <h2>Account Registration</h2>
+      <input
+        type="string"
+        placeholder="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        required
+      />
       <input
         type="string"
         placeholder="First Name"
