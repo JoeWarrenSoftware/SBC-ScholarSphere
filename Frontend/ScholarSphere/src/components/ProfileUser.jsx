@@ -3,6 +3,7 @@ import api from '../api';
 import { useNavigate } from 'react-router-dom';
 
 const ProfileUser = () => {
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
@@ -55,6 +56,12 @@ const ProfileUser = () => {
       <form onSubmit={handleSubmit}>
       <h2>My Profile</h2>
       <input
+        type="string"
+        placeholder="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <input
         type="email"
         placeholder="Email"
         value={email}
@@ -80,7 +87,7 @@ const ProfileUser = () => {
       />
       <input
         type="string"
-        placeholder="First Name"
+        placeholder="Last Name"
         value={lastName}
         onChange={(e) => setLastName(e.target.value)}
       />
