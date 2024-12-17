@@ -20,7 +20,7 @@ def addPost(request):
     serializer = PostSerializer(data=request.data)
     
     if serializer.is_valid():
-        serializer.save(author=request.user)
+        serializer.save(user=request.user)
         return Response(serializer.data, status=201)
     
     return Response(serializer.errors, status=400)
@@ -69,6 +69,7 @@ def updatePost(request, id):
 # deleting post
 
 @api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
 def deletePost(request, id):
     try:
         post = Post.objects.get(id=id)

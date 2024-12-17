@@ -12,4 +12,6 @@ class PostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = ['id', 'author', 'title', 'text', 'created_date', 'published_date', 'modified_date', 'likeCount', 'comments', ]
+        fields = ['id', 'user', 'author', 'title', 'text', 'created_date', 'published_date', 'modified_date', 'likeCount', 'comments', ]
+        # setting the serializer the author not be expected as part of the data 
+        read_only_fields = ['user']
