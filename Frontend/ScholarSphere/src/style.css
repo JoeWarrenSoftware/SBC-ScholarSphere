@@ -1,0 +1,589 @@
+/* --- Light/Dark Mode variables ---
+Use colors for both themes with the following:
+background-color: var(--background-color);
+color: var(--text-color);
+color: var(--link-color);
+
+/* Light mode (default) */
+:root {
+    
+    text-align: center;
+    --background-color: #486d62;
+
+    --body-color: rgb(241, 241, 241);
+    --text-color: #000000;
+    --link-color: #007bff;
+
+    --nav-button-color: #C3D7E9;
+
+    --blog-background: white;
+    --blog-font-color: #b6b7b9;
+    --blog-info-text: white;
+    --blog-info-label-text: white;
+
+    --button-font-color: black;
+    --header1-text: #c3d7e9;
+    --header2-text:  rgb(248, 248, 248);
+
+    --nav-button-hover: yellow;
+    --nav-button-text-color: black
+    --blog-info-label-text: black;
+    --blog-title-hover: #a1c8eb;
+  }
+  
+  /* Dark mode (enabled/disabled by React) */
+  body.dark-mode {
+    --background-color: #2D2A2E;
+
+    --body-color:  #221F22;
+    --text-color: #EDF2FA;
+    --link-color: #66aaff;
+
+    --nav-button-color:#4c6780;
+
+    --blog-background: #2D2A2E;
+    --blog-font-color: #b6b7b9;
+    --blog-info-text: white;
+    --blog-info-label-text: white;
+
+    --button-font-color: black;
+    --header1-text: #c3d7e9;
+    --header2-text:  rgb(248, 248, 248);
+
+    --nav-button-hover: yellow;
+    --nav-button-text-color: black
+    --blog-info-label-text: black;
+    --blog-title-hover: #a1c8eb;
+  }
+
+/* Style for the theme switcher */
+.theme-switcher {
+    display: flex;
+    justify-content:right;
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+    gap: 0.5rem;
+  }
+  
+  /* Style the switch - hide default checkbox */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* Slider (before) */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  
+  /* Slider (after) */
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+  }
+  
+  /* When the checkbox is checked */
+  input:checked + .slider {
+    background-color: #66aaff;
+  }
+  
+  /* Move the slider to the right when checked */
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  /* Add a shadow to the slider when checked */
+  input:checked + .slider {
+    box-shadow: 0 0 1px 1px rgba(0, 123, 255, 0.6);
+  }
+  
+  /* Hover effects */
+  .slider:hover {
+    background-color: #aaa;
+  }
+
+
+
+/* General Styles */
+
+
+@font-face {
+    font-family:"BlogHeader";
+    src: url("/assets/AlegreyaSans-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+
+
+body {
+    font-family:"BlogHeader", sans-serif;
+    font-size:medium ;
+    margin: 0;
+    padding: 0;
+    background-color: var(--body-color);
+    width: 100%;
+    color: var(--blog-font-color);
+}
+
+/* Header Styles */
+
+header {
+    display: flex;
+    background-color: var(--background-color);
+    padding: 20px 20px;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.header-logo {
+    max-width: 100%;
+    height:auto;
+    display: block;
+    width: 150px;
+    margin-left: 3rem;
+}
+
+.logo-container {
+    width: 25%;
+    height: fit-content;
+    background-color: var(--background-color);
+}
+
+
+header h1 {
+    color: var( --header1-text);
+    font-family: "BlogHeader", Arial, Helvetica, sans-serif;
+    margin: 0;
+    font-size: 4rem;
+    padding: 5px;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+header h2 {
+    color: var(--header2-text);
+    margin: 0;
+    font-size: 1.25rem;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+header nav {
+    display: flex;
+    gap: 15px;
+    width: 25%;
+   
+    justify-content: right;
+    margin-right: 3rem;
+    flex-direction: column;
+}
+
+.nav-buttons {
+    display:flex;
+    gap: 1em;
+    justify-content: right;
+   
+}
+
+header nav a,
+header nav button {
+    align-items: flex-start;
+    background-color: var(--nav-button-color);
+    color: var(--nav-button-text-color);
+    font-size: 1.25rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+    text-decoration: none;
+    max-width: 4rem;
+}
+
+
+
+header nav button {
+    display: flex;
+    /* background-color: rgb(255, 231, 18); */
+    color: var(--nav-button-text-color);
+    font-size: 1.25rem;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-top: 0.5rem;
+    max-width: 1rem;
+  }
+
+header nav a:hover,
+header nav button:hover {
+    cursor: pointer;
+    color: var(--nav-button-hover);
+}
+
+/* Form Styles */
+
+
+form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: var(--blog-background);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form input {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--blog-font-color);
+    color: var(--blog-background);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: var(--blog-font-color);
+}
+
+/* Main blog styles */
+
+
+.blog {
+    border: 1px solid #e0e0e0;
+    font-size: larger;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: var(--blog-background);
+    color: var(--blog-font-color);
+    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    margin-bottom: 2rem;
+}
+
+.blog:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.blog-title {
+    font-size: 45px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--blog-font-color);
+   padding-top: 1.5rem;
+}
+
+.blog-title:hover {
+    font-size: 45px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--blog-title-hover);
+    padding-top: 1.5rem;
+    cursor: pointer;
+
+} 
+
+.blog-info {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    font-size: medium;
+    
+   
+   
+}
+
+.blog-author {
+    display: flex;
+    /* flex-wrap: wrap; */
+    color: var(--blog-info-text);
+    font-weight: bold;
+    font-style: italic;
+
+}
+
+
+.blog-author:hover {
+    color: var(--blog-title-hover);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+
+ label.blog-createdDate-label, 
+ label.blog-author-label, 
+ label.blog-modifiedDate-label,
+ label.blog-likeCount-label {
+    font-style: normal;
+    padding-right: 0.5rem;
+    color: var(--blog-info-label-text);
+ }
+
+
+
+.blog-modifiedDate,
+.blog-createdDate {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--blog-info-text);
+}
+
+
+.blog-body {
+    max-height: fit-content;
+}
+
+.blog-likeCount {
+    display: flex;
+    justify-content: right;
+    padding: 2rem;
+    font-weight: bold;
+} 
+
+
+/* .footer-copywrite {
+
+
+}
+
+.footer {
+
+
+} */
+
+/* Media Queries */
+
+/* Media Query for Tablets */
+
+@media (max-width: 768px) {
+    .logo {
+      width: 120px; /* Adjust logo size for tablet screens */
+    }
+
+header {
+    flex-direction: column;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    padding-top: 20px;
+}
+
+header h2 {
+    padding-bottom: 30px;
+}
+
+.header-logo {
+    margin: 0;
+    padding: 0;
+}
+
+header nav {
+
+display: flex;
+gap: 15px;
+width: fit-content;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.theme-switcher {
+    justify-content: center;
+}
+
+.blog-title {
+    font-size: 35px;
+}
+    
+.blog {
+
+    width: 60%;
+    justify-content: center;
+}
+
+
+.blog-info {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+}
+  
+  /* Media Query for Mobile */
+
+  @media (max-width: 480px) {
+    .logo {
+      width: 100px; /* Adjust logo size for small screens */
+    }
+
+   
+
+  }
+
+
+/* .card-description {
+    font-size: 1rem;
+    color: #666;
+} */
+/* .card-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+} */
+
+
+/* .course-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+} */
+
+/* .button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}  */
+
+/* .button:hover {
+    background-color: #0056b3;
+} */
+
+/* .mt-5 {
+    margin-top: 5px;
+} */
+
+/* .delegate-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+} */
+
+
+/* Course List Styles */
+/* div {
+    padding: 20px;
+}
+
+
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    background-color: white;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+} */
+
+/* Footer section 
+
+.footer {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-copyright {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Blog section 
+
+.blog {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.blog-title {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.blog-author {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.blog-createdDate {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.blog-modifiedDate {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.blog-body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.blog-likeCount {
+    font-family: Arial, Helvetica, sans-serif;
+} */
+
+/* Header section */
+/* 
+.header {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header-logo {
+    font-family: Arial, Helvetica, sans-serif;
+}*/
