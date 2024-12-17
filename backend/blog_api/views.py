@@ -14,7 +14,7 @@ from drf_yasg.utils import swagger_auto_schema
 
 @swagger_auto_schema(method='post', request_body=PostSerializer)
 @api_view(['POST'])
-@permission_classes([IsAuthenticated]) #just logged in user add post
+@permission_classes([IsAuthenticated]) #just logged in user can add post
 def addPost(request):
     
     serializer = PostSerializer(data=request.data)
@@ -65,3 +65,16 @@ def updatePost(request, id):
     except:
         return Response({"Error" : "Post not found"}, status=404)
     
+
+# deleting post
+
+@api_view(['DELETE'])
+def deletePost(request, id):
+    try:
+        post = Post.objects.get(id=id)
+    
+    except Post.DoesNotExist:
+        return Response({"Error" : "Post not found"}, status=404)
+    
+    post.delete()
+    return Response({"message": "Post deleted successfully"})
