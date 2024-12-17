@@ -37,7 +37,7 @@ const Signup = () => {
     }
 
     try {
-      await api.post('/signup', { username: username, email: email, password: password, first_name: firstName, last_name: lastName});
+      await api.post('/signup/', { username: username, email: email, password: password, first_name: firstName, last_name: lastName});
       navigate('/profile');
     } catch (error) {
       console.error('Signup failed', error);

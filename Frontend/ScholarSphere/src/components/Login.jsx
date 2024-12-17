@@ -19,7 +19,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post('/login', { username: username, password: password });
+      const response = await api.post('/login/', { username: username, password: password });
       const data = response.data;
 
       // Update the user in the context
