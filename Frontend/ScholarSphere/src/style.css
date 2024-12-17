@@ -9,14 +9,22 @@ color: var(--link-color);
     
     text-align: center;
     --background-color: #486d62;
+
     --body-color: rgb(241, 241, 241);
     --text-color: #000000;
     --link-color: #007bff;
+
+    --nav-button-color: #C3D7E9;
+
     --blog-background: white;
+    --blog-font-color: #b6b7b9;
+    --blog-info-text: white;
+    --blog-info-label-text: white;
+
     --button-font-color: black;
     --header1-text: #c3d7e9;
     --header2-text:  rgb(248, 248, 248);
-    --nav-button-color: #C3D7E9;
+
     --nav-button-hover: yellow;
     --nav-button-text-color: black
     --blog-info-label-text: black;
@@ -26,18 +34,27 @@ color: var(--link-color);
   /* Dark mode (enabled/disabled by React) */
   body.dark-mode {
     --background-color: #2D2A2E;
+
+    --body-color:  #221F22;
     --text-color: #EDF2FA;
     --link-color: #66aaff;
-    --body-color:  #221F22;
+
+    --nav-button-color:#4c6780;
+
     --blog-background: #2D2A2E;
     --blog-font-color: #b6b7b9;
-    --nav-button-color:#4c6780;
     --blog-info-text: white;
     --blog-info-label-text: white;
+
+    --button-font-color: black;
+    --header1-text: #c3d7e9;
+    --header2-text:  rgb(248, 248, 248);
+
+    --nav-button-hover: yellow;
+    --nav-button-text-color: black
+    --blog-info-label-text: black;
+    --blog-title-hover: #a1c8eb;
   }
- 
-
-
 
 /* Style for the theme switcher */
 .theme-switcher {
