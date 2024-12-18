@@ -9,18 +9,11 @@ import BlogDetails from './components/BlogDetails';
 import ProfileUser from './components/ProfileUser';
 import ProfileDetails from './components/ProfileDetails';
 
-import useLocalStorage from './helpers/useLocalStorage';
 import { SessionProvider } from './contexts/SessionContext';
-import { useState } from 'react'
 
 import './App.css'
 
 function App() {
-
-  const [theme, setTheme] = useLocalStorage(
-    "theme",
-    'dark'
-  );
 
   return (
     <div>
