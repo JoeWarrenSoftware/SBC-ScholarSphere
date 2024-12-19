@@ -257,6 +257,10 @@ form {
     border-radius: 5px;
 }
 
+.blog-create form {
+    max-width: 800px;
+}
+
 form h2 {
     margin-bottom: 20px;
     text-align: center;
@@ -268,6 +272,15 @@ form input {
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+form textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
 }
 
 form button {
@@ -331,9 +344,6 @@ form button:hover {
     margin-bottom: 2rem;
     padding: 1rem;
     font-size: medium;
-    
-   
-   
 }
 
 .blog-author {
@@ -342,17 +352,13 @@ form button:hover {
     color: var(--blog-info-text);
     font-weight: bold;
     font-style: italic;
-
 }
-
 
 .blog-author:hover {
     color: var(--blog-title-hover);
     cursor: pointer;
     font-weight: bold;
 }
-
-
 
  label.blog-createdDate-label, 
  label.blog-author-label, 
@@ -363,8 +369,6 @@ form button:hover {
     color: var(--blog-info-label-text);
  }
 
-
-
 .blog-modifiedDate,
 .blog-createdDate {
     display: flex;
@@ -373,7 +377,6 @@ form button:hover {
     font-style: italic;
     color: var(--blog-info-text);
 }
-
 
 .blog-body {
     max-height: fit-content;
@@ -385,7 +388,6 @@ form button:hover {
     padding: 2rem;
     font-weight: bold;
 } 
-
 
 /* .footer-copywrite {
 

@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import BlogList from './components/BlogList';
 import BlogDetails from './components/BlogDetails';
+import BlogCreate from './components/BlogCreate';
 import ProfileUser from './components/ProfileUser';
 import ProfileDetails from './components/ProfileDetails';
 
@@ -22,6 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<BlogList />} />
           <Route path="/blog/:id" element={<BlogDetails />} />
+          <Route path="/blog/create" element={<BlogCreate />} />
           <Route path="/profile" element={<ProfileUser />} />
           <Route path="/profile/:id" element={<ProfileDetails />} />
           <Route path="/login" element={<Login />} />
