@@ -12,7 +12,7 @@ const BlogList = () => {
 
         console.log('blogs', response.data);
 
-        setBlogs(response.data);
+        setBlogs(response.data.data);
       } catch (error) {
         console.error('Failed to fetch blogs', error);
       }
