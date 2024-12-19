@@ -6,20 +6,21 @@ color: var(--link-color);
 
 /* Light mode (default) */
 :root {
-    
+    margin: 0;
+    padding:0;
     text-align: center;
     --background-color: #486d62;
 
     --body-color: rgb(241, 241, 241);
     --text-color: #000000;
-    --link-color: #007bff;
+    --link-color: #000203;
 
     --nav-button-color: #C3D7E9;
 
     --blog-background: white;
-    --blog-font-color: #b6b7b9;
-    --blog-info-text: white;
-    --blog-info-label-text: white;
+    --blog-font-color: black;
+    --blog-info-text: black;
+    --blog-info-label-text: rgb(0, 0, 0);
 
     --button-font-color: black;
     --header1-text: #c3d7e9;
@@ -129,15 +130,12 @@ color: var(--link-color);
 
 /* General Styles */
 
-
 @font-face {
     font-family:"BlogHeader";
     src: url("/assets/AlegreyaSans-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
   }
-
-
 
 
 body {
@@ -226,8 +224,6 @@ header nav button {
     max-width: 4rem;
 }
 
-
-
 header nav button {
     display: flex;
     /* background-color: rgb(255, 231, 18); */
@@ -246,7 +242,6 @@ header nav button:hover {
 }
 
 /* Form Styles */
-
 
 form {
     max-width: 400px;
@@ -312,6 +307,11 @@ form button:hover {
     margin-left: 10rem;
     margin-right: 10rem;
     margin-bottom: 2rem;
+}
+
+.blog-list{
+    width: 100%;
+
 }
 
 .blog:hover {
@@ -408,56 +408,54 @@ form button:hover {
       width: 120px; /* Adjust logo size for tablet screens */
     }
 
-header {
+    header {
     flex-direction: column;
     flex-wrap:wrap;
     justify-content: center;
     align-items: center;
-}
+    }
 
-header h1 {
+    header h1 {
     padding-top: 20px;
-}
+    }
 
-header h2 {
+    header h2 {
     padding-bottom: 30px;
-}
+    }
 
-.header-logo {
+    .header-logo {
     margin: 0;
     padding: 0;
-}
+    }
 
-header nav {
+    header nav {
 
-display: flex;
-gap: 15px;
-width: fit-content;
-flex-wrap: wrap;
-justify-content: center;
-}
-
-.theme-switcher {
+    display: flex;
+    gap: 15px;
+    width: fit-content;
+    flex-wrap: wrap;
     justify-content: center;
-}
+    }
 
-.blog-title {
+    .theme-switcher {
+    justify-content: center;
+    }
+
+    .blog-title {
     font-size: 35px;
-}
+    }
     
-.blog {
-
+    .blog {
     width: 60%;
     justify-content: center;
-}
+    padding: 0;
+    }
 
-
-.blog-info {
+    .blog-info {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-  }
+    }
 }
   
   /* Media Query for Mobile */
@@ -467,7 +465,65 @@ justify-content: center;
       width: 100px; /* Adjust logo size for small screens */
     }
 
+    header  h1, h2 {
+        display: none;
+    }
+
+    .header-logo{
+        padding-right: 1rem;
+        justify-content: center;
+        margin-right: 1rem;
+        align-items: center;
    
+    }
+
+    nav {
+        margin: 0;
+        padding: 0;
+
+    }
+    
+    .blog-list {
+        width: 375; 
+    }
+     
+    .logo-container{
+        padding: 0;
+        margin: 0;  
+    }
+  
+
+    .blog {
+        width: fit-content;
+        padding-left: 10px;
+        padding-right: 10px;
+           
+        margin-right:30px;
+        margin-left: 30px;
+        margin-top: 30px;;
+    }
+    
+header nav {
+    display: flex;
+    gap: 15px;
+    width: fit-content;
+    flex-wrap: wrap;
+    justify-content: center;
+    }
+    
+    header {
+        flex-direction: column;
+        flex-wrap:wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header-logo {
+        margin-bottom: 30px;
+        padding: 0;
+        justify-content: center;
+    }
+    
 
   }
 
