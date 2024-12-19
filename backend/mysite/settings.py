@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'users_api',
-    'blog_api'
+    'blog_api',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",  # Your React app's URL
 ]
 
 ROOT_URLCONF = 'mysite.urls'
