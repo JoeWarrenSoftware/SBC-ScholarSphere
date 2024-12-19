@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from .models import Post, Comments
-from .serializer import PostSerializer, CommentsSerializer
+from .serializer import PostSerializer, PostAddSerializer, CommentsSerializer
 
 from rest_framework.permissions import IsAuthenticated
 from drf_yasg.utils import swagger_auto_schema
