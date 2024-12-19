@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'users_api',
     'blog_api',
-    'corsheaders'
+    'corsheaders',
+    'drf_yasg'
 ]
 
 MIDDLEWARE = [
@@ -59,6 +60,25 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # Your React app's URL
 ]
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'TokenAuth': {
+            'type': 'apiKey',
+            'in': 'header',
+            'name': 'Authorization',
+            'description': 'Use the token in the format: `token <your-token>`'
+        },
+        'ApiKeyAuth': {
+            'type': 'apiKey',
+            'in': 'header',
+            'name': 'Authorization',
+            'description': 'Use the key in the format: `Api-Key <your-api-key>`',
+        }
+    },
+    
+    'USE_SESSION_AUTH': False,    # Disable session-based authentication
+}
 
 ROOT_URLCONF = 'mysite.urls'
 
@@ -84,6 +104,9 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',  
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
     ],
 }
 

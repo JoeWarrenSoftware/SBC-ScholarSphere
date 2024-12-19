@@ -56,7 +56,8 @@ const Header = () => {
         <Link to="/">All Blogs</Link>
         {token ? (
           <>
-            <Link to="/profile">{user.name}'s Blogs</Link>
+            <Link to="/blog/create">Create Post</Link>
+            <Link to="/profile">My Posts</Link>
             <button onClick={handleLogout}>Logout</button>
           </>
         ) : (
