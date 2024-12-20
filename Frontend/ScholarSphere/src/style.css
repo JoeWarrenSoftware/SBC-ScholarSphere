@@ -15,6 +15,7 @@ color: var(--link-color);
     --text-color: #000000;
     --link-color: #007bff;
     --error-text-color: #d31c1c;
+    --status-text-color: #0d5a06;
 
     --nav-button-color: #C3D7E9;
 
@@ -43,6 +44,7 @@ color: var(--link-color);
     --text-color: #EDF2FA;
     --link-color: #9ec9fd;
     --error-text-color: #d31c1c;
+    --status-text-color: #2bd31c;
 
     --nav-button-color:#4c6780;
 
@@ -134,6 +136,10 @@ color: var(--link-color);
 
   .errorText {
     color: var(--error-text-color);
+  }
+
+  .statusText {
+    color: var(--status-text-color);
   }
 
 
