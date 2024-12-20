@@ -46,6 +46,8 @@ const Login = () => {
 
       console.log('Login response', data);
       localStorage.setItem('authToken', data.data.token);
+      // Set the username to localstorage
+      localStorage.setItem('user', username);
       navigate('/');
     } catch (error) {
       console.error('Login failed', error);
