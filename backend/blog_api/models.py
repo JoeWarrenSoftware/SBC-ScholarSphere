@@ -15,6 +15,7 @@ class Post(models.Model):
     published_date = models.DateTimeField(default=timezone.now)
     modified_date = models.DateTimeField(blank=True, null=True)
     likeCount = models.PositiveIntegerField(default=0)
+    comments = models.JSONField(default=list)
 
     def save(self, *args, **kwargs):
         if self.user:
@@ -31,7 +32,7 @@ class Post(models.Model):
 
 class Comments(models.Model):
     # creating one-to-many relationship with this one comment have more comments
-    post = models.ForeignKey(Post, related_name="comments", on_delete=models.CASCADE)
+    # post = models.ForeignKey(Post, related_name="comments", on_delete=models.CASCADE, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     text = models.TextField()
     likeCount = models.PositiveIntegerField(default=0)    
