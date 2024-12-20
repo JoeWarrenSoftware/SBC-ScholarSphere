@@ -12,9 +12,25 @@ const defaultUser = {
 const Login = () => {
   const [username, setUsername] = useState(defaultUser.username);
   const [password, setPassword] = useState(defaultUser.password);
+  const [error, setError] = useState('');
+  const [status, setStatus] = useState('');
   const navigate = useNavigate();
 
   const { setUser } = useSession();
+
+  const displayError = (message) => {
+    setError(message);
+    setTimeout(() => {
+        setError('');
+    }, 3000);
+};
+
+  const displayStatus = (message) => {
+    setStatus(message);
+    setTimeout(() => {
+        setStatus('');
+    }, 3000);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,6 +49,7 @@ const Login = () => {
       navigate('/');
     } catch (error) {
       console.error('Login failed', error);
+      displayError(error.message);
     }
   };
 
@@ -54,6 +71,8 @@ const Login = () => {
         onChange={(e) => setPassword(e.target.value)}
         required
       />
+      {error && <p className='errorText'>{error}</p>}
+      {status && <p className='statusText'>{status}</p>}
       <button type="submit">Login</button>
     </form>
     <div className='already-registered-container'>
