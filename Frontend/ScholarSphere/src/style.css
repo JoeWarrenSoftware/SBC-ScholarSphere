@@ -358,6 +358,11 @@ form button:hover {
 
 } 
 
+img.blog-profile-picture {
+    height: 50px;
+    width: 50px;
+}
+
 .blog-info {
     display: flex;
     gap: 30px;
