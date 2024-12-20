@@ -45,9 +45,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="logo-container"> 
-      <img  className="header-logo" alt="Logo" src="/assets/Logo12.png"  />
+      <Link to="/"><img  className="header-logo" alt="Logo" src="/assets/Logo12.png"  /></Link>
       </div>
-      <div>
+      <div className="header-title">
         <h1>Scholar Sphere</h1>
         <h2>THE BLOGGING SITE FOR ACADEMICS</h2>
       </div>
@@ -57,8 +57,8 @@ const Header = () => {
         {token ? (
           <>
             <Link to="/blog/create">Create Post</Link>
-            <Link to="/profile">My Posts</Link>
-            <button onClick={handleLogout}>Logout</button>
+            <Link to="/profile">My Profile</Link>
+            <Link onClick={handleLogout}>Logout</Link>
           </>
         ) : (
           <>

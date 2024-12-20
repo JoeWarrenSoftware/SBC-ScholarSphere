@@ -26,7 +26,7 @@ const BlogList = () => {
       <h2>ALL BLOGS</h2>
       <div className="blog-list">
         {blogs.map((blog) => (
-          <BlogPost key={blog.id} blog={blog} />
+          <BlogPost key={blog.id} blog={blog} showLike={true} />
         ))}
       </div>
     </div>

@@ -32,7 +32,7 @@ const BlogDetails = () => {
     <div>
       <h2>Blog Post Display</h2>
       { blog && <div className="blog-list">
-          <BlogPost blog={blog} />
+          <BlogPost blog={blog} showLike={true} showEdit={true} showDelete={true}/>
       </div>}
       { !blog && <div>Loading...</div>}
     </div>
