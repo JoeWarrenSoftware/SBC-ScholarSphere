@@ -3,9 +3,10 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from .models import Post, Comments
 from .serializer import PostSerializer, PostAddSerializer, CommentsSerializer
-
+from users_api.serializer import LoginSerializer
 from rest_framework.permissions import IsAuthenticated
 from drf_yasg.utils import swagger_auto_schema
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -17,13 +18,20 @@ from drf_yasg.utils import swagger_auto_schema
 @permission_classes([IsAuthenticated]) #just logged in user can add post
 def addPost(request):
     
+    user = User.objects.filter(username=request.user).first()
+    author_obj = {
+        "id": user.id,
+        "name": f"{user.first_name} {user.last_name}".strip() if user.first_name or user.last_name else user.username
+    }
+
     serializer = PostSerializer(data=request.data)
-    
     if serializer.is_valid():
         serializer.save(user=request.user)
-        return Response(serializer.data, status=201)
+        return Response(author_obj, status=201)
     
     return Response(serializer.errors, status=400)
+
+
 
 # get all posts, no need login
 

@@ -13,13 +13,14 @@ color: var(--link-color);
     --body-color: rgb(241, 241, 241);
     --text-color: #000000;
     --link-color: #007bff;
+    --error-text-color: #d31c1c;
 
     --nav-button-color: #C3D7E9;
 
     --blog-background: white;
-    --blog-font-color: #b6b7b9;
-    --blog-info-text: white;
-    --blog-info-label-text: white;
+    --blog-font-color: #0f0f0f;
+    --blog-info-text: #000000;
+    --blog-info-label-text: #000000;
 
     --button-font-color: black;
     --header1-text: #c3d7e9;
@@ -28,7 +29,8 @@ color: var(--link-color);
     --nav-button-hover: yellow;
     --nav-button-text-color: black
     --blog-info-label-text: black;
-    --blog-title-hover: #a1c8eb;
+    --blog-font-color-hover: rgb(214, 214, 37);
+    --blog-font-color-visited: #27c24e;
   }
   
   /* Dark mode (enabled/disabled by React) */
@@ -37,7 +39,8 @@ color: var(--link-color);
 
     --body-color:  #221F22;
     --text-color: #EDF2FA;
-    --link-color: #66aaff;
+    --link-color: #9ec9fd;
+    --error-text-color: #d31c1c;
 
     --nav-button-color:#4c6780;
 
@@ -54,6 +57,8 @@ color: var(--link-color);
     --nav-button-text-color: black
     --blog-info-label-text: black;
     --blog-title-hover: #a1c8eb;
+    --blog-font-color-hover: yellow;
+    --blog-font-color-visited: #55fc7f;
   }
 
 /* Style for the theme switcher */
@@ -125,6 +130,10 @@ color: var(--link-color);
     background-color: #aaa;
   }
 
+  .errorText {
+    color: var(--error-text-color);
+  }
+
 
 
 /* General Styles */
@@ -138,8 +147,6 @@ color: var(--link-color);
   }
 
 
-
-
 body {
     font-family:"BlogHeader", sans-serif;
     font-size:medium ;
@@ -148,11 +155,13 @@ body {
     background-color: var(--body-color);
     width: 100%;
     color: var(--blog-font-color);
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header Styles */
 
-header {
+.header {
     display: flex;
     background-color: var(--background-color);
     padding: 20px 20px;
@@ -161,22 +170,7 @@ header {
     width: 100%;
 }
 
-.header-logo {
-    max-width: 100%;
-    height:auto;
-    display: block;
-    width: 150px;
-    margin-left: 3rem;
-}
-
-.logo-container {
-    width: 25%;
-    height: fit-content;
-    background-color: var(--background-color);
-}
-
-
-header h1 {
+.header h1 {
     color: var( --header1-text);
     font-family: "BlogHeader", Arial, Helvetica, sans-serif;
     margin: 0;
@@ -187,7 +181,7 @@ header h1 {
     padding-right: 20px;
 }
 
-header h2 {
+.header h2 {
     color: var(--header2-text);
     margin: 0;
     font-size: 1.25rem;
@@ -196,7 +190,7 @@ header h2 {
     padding-right: 20px;
 }
 
-header nav {
+.header nav {
     display: flex;
     gap: 15px;
     width: 25%;
@@ -206,6 +200,20 @@ header nav {
     flex-direction: column;
 }
 
+.logo-container {
+    width: 25%;
+    height: fit-content;
+    background-color: var(--background-color);
+}
+
+.header-logo {
+    max-width: 100%;
+    height:auto;
+    display: block;
+    width: 150px;
+    margin-left: 3rem;
+}
+
 .nav-buttons {
     display:flex;
     gap: 1em;
@@ -213,8 +221,8 @@ header nav {
    
 }
 
-header nav a,
-header nav button {
+.nav-buttons a,
+.nav-buttons button {
     align-items: flex-start;
     background-color: var(--nav-button-color);
     color: var(--nav-button-text-color);
@@ -226,24 +234,12 @@ header nav button {
     max-width: 4rem;
 }
 
-
-
-header nav button {
-    display: flex;
-    /* background-color: rgb(255, 231, 18); */
-    color: var(--nav-button-text-color);
-    font-size: 1.25rem;
-    padding: 5px 10px;
-    border-radius: 15px;
-    margin-top: 0.5rem;
-    max-width: 1rem;
-  }
-
-header nav a:hover,
-header nav button:hover {
+.header a:hover,
+.header button:hover {
     cursor: pointer;
     color: var(--nav-button-hover);
 }
+
 
 /* Form Styles */
 
@@ -257,8 +253,14 @@ form {
     border-radius: 5px;
 }
 
-.blog-create form {
+form.blog-create,
+form.blog-edit {
     max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: var(--blog-background);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
 }
 
 form h2 {
@@ -299,6 +301,14 @@ form button:hover {
 
 /* Main blog styles */
 
+.blog-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+}
 
 .blog {
     border: 1px solid #e0e0e0;
@@ -309,9 +319,8 @@ form button:hover {
     color: var(--blog-font-color);
     box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    margin-left: 10rem;
-    margin-right: 10rem;
-    margin-bottom: 2rem;
+    width: 80%;
+    margin: 10px 10px;
 }
 
 .blog:hover {
@@ -319,19 +328,27 @@ form button:hover {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-.blog-title {
+.blog-title a {
     font-size: 45px;
     font-weight: bold;
     margin-bottom: 8px;
-    color: var(--blog-font-color);
+    color: var(--link-color);
    padding-top: 1.5rem;
 }
 
-.blog-title:hover {
+.blog-title a:visited {
     font-size: 45px;
     font-weight: bold;
     margin-bottom: 8px;
-    color: var(--blog-title-hover);
+    color: var(--blog-font-color-visited);
+   padding-top: 1.5rem;
+}
+
+.blog-title a:hover {
+    font-size: 45px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--blog-font-color-hover);
     padding-top: 1.5rem;
     cursor: pointer;
 
@@ -367,6 +384,7 @@ form button:hover {
     font-style: normal;
     padding-right: 0.5rem;
     color: var(--blog-info-label-text);
+    align-items: center;
  }
 
 .blog-modifiedDate,
@@ -382,12 +400,25 @@ form button:hover {
     max-height: fit-content;
 }
 
-.blog-likeCount {
+.blog-controls {
     display: flex;
     justify-content: right;
     padding: 2rem;
     font-weight: bold;
-} 
+}
+
+.blog-controls button, 
+.blog-controls a {
+    margin: 0px 5px;
+    align-items: flex-start;
+    background-color: var(--nav-button-color);
+    color: var(--nav-button-text-color);
+    font-size: 1.25rem;
+    padding: 5px 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    max-width: 4rem;
+}
 
 /* .footer-copywrite {
 
@@ -462,12 +493,20 @@ justify-content: center;
   
   /* Media Query for Mobile */
 
-  @media (max-width: 480px) {
+@media (max-width: 480px) {
     .logo {
       width: 100px; /* Adjust logo size for small screens */
     }
 
-   
+   .header-title {
+    visibility: none;
+   }
+
+   .blog {
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+   }
 
   }
 
