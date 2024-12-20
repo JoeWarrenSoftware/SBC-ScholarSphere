@@ -1,12 +1,16 @@
+
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from .models import Post, Comments
-from .serializer import PostSerializer, PostAddSerializer, CommentsSerializer
-from users_api.serializer import LoginSerializer
+from .serializer import PostSerializer, CommentsSerializer
+
 from rest_framework.permissions import IsAuthenticated
 from drf_yasg.utils import swagger_auto_schema
-from django.contrib.auth.models import User
+
+
+from users_api.models import Profile
+
 
 
 # Create your views here.
@@ -15,23 +19,16 @@ from django.contrib.auth.models import User
 
 @swagger_auto_schema(method='post', request_body=PostSerializer)
 @api_view(['POST'])
-@permission_classes([IsAuthenticated]) #just logged in user can add post
+# @permission_classes([IsAuthenticated]) #just logged in user can add post
 def addPost(request):
     
-    user = User.objects.filter(username=request.user).first()
-    author_obj = {
-        "id": user.id,
-        "name": f"{user.first_name} {user.last_name}".strip() if user.first_name or user.last_name else user.username
-    }
-
     serializer = PostSerializer(data=request.data)
+    
     if serializer.is_valid():
         serializer.save(user=request.user)
-        return Response(author_obj, status=201)
+        return Response(serializer.data, status=201)
     
     return Response(serializer.errors, status=400)
-
-
 
 # get all posts, no need login
 
@@ -87,3 +84,58 @@ def deletePost(request, id):
     
     post.delete()
     return Response({"message": "Post deleted successfully"})
+
+
+# comments
+
+from django.http import HttpResponse
+
+
+@swagger_auto_schema(method='post', request_body=CommentsSerializer)
+@api_view(['POST'])
+# @permission_classes([IsAuthenticated])
+def addComment(request, id) :
+    
+    post = Post.objects.get(id=id)
+    
+    profile = Profile.objects.get(user_id = request.user.id)
+
+    comment = {
+        'author' : f"{profile.first_name} {profile.last_name}",
+        'text': request.data,
+        'likeCount': 0
+    }
+
+    post.newComments.append(comment)
+
+    post.save()
+    try:
+        return HttpResponse(post)
+
+    except: 
+        return HttpResponse('Post not found')
+    
+
+
+
+# likes 
+
+
+@api_view(['PUT'])
+def likePost(request, id, letter):
+    
+    print(letter)
+    post = Post.objects.get(id=id)
+
+    if letter == 'p':
+        post.likeCount =+ 1
+        post.save()    
+        return HttpResponse(post.likeCount)
+        
+    if letter == 'n':
+        post.likeCount =- 1
+        post.save()    
+        return HttpResponse(post.likeCount)
+
+    
+    return HttpResponse('Post not found')
