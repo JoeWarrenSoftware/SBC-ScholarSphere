@@ -12,7 +12,12 @@ const BlogList = () => {
 
         console.log('blogs', response.data);
 
-        setBlogs(response.data.data);
+
+        const fetchedBlogs = response.data.data;
+        // Sort blogs by descending ID
+        fetchedBlogs.sort((a, b) => b.id - a.id);
+
+        setBlogs(fetchedBlogs);
       } catch (error) {
         console.error('Failed to fetch blogs', error);
       }
