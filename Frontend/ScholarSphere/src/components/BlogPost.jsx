@@ -27,7 +27,7 @@ const handleDelete = async (e) => {
 
     try {
         console.log('Delete Post Begin');
-        await api.delete('/post/delete/', { });
+        await api.delete(`post/delete/${blog.id}'`, { });
         navigate('/');
     } catch (error) {
         console.error('Delete post failed', error);
@@ -50,6 +50,7 @@ const handleLike = async (e) => {
   return (
     <div className="blog">
         <div className="blog-title">
+            <img className="blog-profile-picture" alt='Profile Pic' src="/assets/DefaultProfilePic.png"></img>
             <Link to={`/blog/${blog.id}`}>{blog.title}</Link>
         </div>
         <div className="blog-info">
