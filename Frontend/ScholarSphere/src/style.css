@@ -6,7 +6,8 @@ color: var(--link-color);
 
 /* Light mode (default) */
 :root {
-    
+    margin: 0;
+    padding:0;
     text-align: center;
     --background-color: #486d62;
 
@@ -18,6 +19,7 @@ color: var(--link-color);
     --nav-button-color: #C3D7E9;
 
     --blog-background: white;
+
     --blog-font-color: #0f0f0f;
     --blog-info-text: #000000;
     --blog-info-label-text: #000000;
@@ -138,7 +140,6 @@ color: var(--link-color);
 
 /* General Styles */
 
-
 @font-face {
     font-family:"BlogHeader";
     src: url("/assets/AlegreyaSans-Regular.ttf") format("truetype");
@@ -240,9 +241,7 @@ body {
     color: var(--nav-button-hover);
 }
 
-
 /* Form Styles */
-
 
 form {
     max-width: 400px;
@@ -321,6 +320,11 @@ form button:hover {
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     width: 80%;
     margin: 10px 10px;
+}
+
+.blog-list{
+    width: 100%;
+
 }
 
 .blog:hover {
@@ -439,56 +443,54 @@ form button:hover {
       width: 120px; /* Adjust logo size for tablet screens */
     }
 
-header {
+    header {
     flex-direction: column;
     flex-wrap:wrap;
     justify-content: center;
     align-items: center;
-}
+    }
 
-header h1 {
+    header h1 {
     padding-top: 20px;
-}
+    }
 
-header h2 {
+    header h2 {
     padding-bottom: 30px;
-}
+    }
 
-.header-logo {
+    .header-logo {
     margin: 0;
     padding: 0;
-}
+    }
 
-header nav {
+    header nav {
 
-display: flex;
-gap: 15px;
-width: fit-content;
-flex-wrap: wrap;
-justify-content: center;
-}
-
-.theme-switcher {
+    display: flex;
+    gap: 15px;
+    width: fit-content;
+    flex-wrap: wrap;
     justify-content: center;
-}
+    }
 
-.blog-title {
+    .theme-switcher {
+    justify-content: center;
+    }
+
+    .blog-title {
     font-size: 35px;
-}
+    }
     
-.blog {
-
+    .blog {
     width: 60%;
     justify-content: center;
-}
+    padding: 0;
+    }
 
-
-.blog-info {
+    .blog-info {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-  }
+    }
 }
   
   /* Media Query for Mobile */
