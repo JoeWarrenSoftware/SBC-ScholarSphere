@@ -10,6 +10,7 @@ const Signup = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [error, setError] = useState('');
+  const [status, setStatus] = useState('');
   const navigate = useNavigate();
 
   const displayError = (message) => {
@@ -18,6 +19,14 @@ const Signup = () => {
         setError('');
     }, 3000);
 };
+
+const displayStatus = (message) => {
+  setStatus(message);
+  setTimeout(() => {
+      setStatus('');
+  }, 3000);
+};
+
 
   const validatePassword = () => {
     if (password !== password2) {
@@ -38,14 +47,16 @@ const Signup = () => {
 
     try {
       await api.post('/signup/', { username: username, email: email, password: password, first_name: firstName, last_name: lastName});
-      navigate('/profile');
+      displayStatus('Account Created Successfully!')
+      /* navigate('/profile'); */
     } catch (error) {
       console.error('Signup failed', error);
+      displayError(error.message);
     }
   };
 
   return (
-    <>
+    <div className="content">
     <form className="signup" onSubmit={handleSubmit}>
       <h2>Account Registration</h2>
       <input
@@ -90,14 +101,17 @@ const Signup = () => {
         onChange={(e) => setPassword2(e.target.value)}
         required
       />
-      {error && <p>{error}</p>}
+      {error && <p className='errorText'>{error}</p>}
+      {status && <p className='statusText'>{status}</p>}
       <button type="submit">Create Account</button>
     </form>
-    <div>
-      <label>Already registered?</label>
-      <a href="/login">Login Here</a>
+    <div className='already-registered-container'>
+      <label className='already-registered'>Already registered?</label>
+      <div className='nav-buttons'>
+        <a href="/login">Login </a>
+        </div>
+      </div>
     </div>
-    </>
   );
 };
 

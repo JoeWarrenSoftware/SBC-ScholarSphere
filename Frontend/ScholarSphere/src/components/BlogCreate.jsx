@@ -7,6 +7,7 @@ const BlogCreate = () => {
   const [blogTitle, setBlogTitle] = useState([]);
   const [blogBody, setBlogBody] = useState([]);
   const [error, setError] = useState('');
+  const [status, setStatus] = useState('');
 
   const navigate = useNavigate();
   const displayError = (message) => {
@@ -16,12 +17,20 @@ const BlogCreate = () => {
     }, 3000);
 };
 
+const displayStatus = (message) => {
+  setStatus(message);
+  setTimeout(() => {
+      setStatus('');
+  }, 3000);
+};
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       await api.post('/post/add/', { title: blogTitle, text: blogBody });
-      navigate('/');
+      displayStatus('Blog Post Created Successfully!')
+      /* navigate('/'); */
     } catch (error) {
       console.error('Create post failed', error);
       displayError(error.message);
@@ -29,7 +38,7 @@ const BlogCreate = () => {
   };
 
   return (
-    <>
+    <div className="content">
     <form className="blog-create" onSubmit={handleSubmit}>
       <h2>Create Blog Post</h2>
       <input
@@ -48,9 +57,10 @@ const BlogCreate = () => {
         cols="50"
       />
       {error && <p className='errorText'>{error}</p>}
+      {status && <p className='statusText'>{status}</p>}
       <button type="submit">Create Post</button>
     </form>
-    </>
+    </div>
   );
 };
 

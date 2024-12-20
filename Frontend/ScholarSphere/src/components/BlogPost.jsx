@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 const BlogPost = ({blog, showLike, showEdit, showDelete}) => {
 
 const [error, setError] = useState('');
+const [status, setStatus] = useState('');
 const [likeCount, setLikeCount] = useState(blog.likeCount || 0);
 
 const formatDate = (date) => {
@@ -22,13 +23,20 @@ const displayError = (message) => {
     }, 3000);
 };
 
+const displayStatus = (message) => {
+    setStatus(message);
+    setTimeout(() => {
+        setStatus('');
+    }, 3000);
+  };
+
 const handleDelete = async (e) => {
     e.preventDefault();
 
     try {
         console.log('Delete Post Begin');
-        await api.delete(`post/delete/${blog.id}'`, { });
-        navigate('/');
+        await api.delete(`post/delete/${blog.id}/`, { });
+        displayStatus("Post Deleted Successfully!")
     } catch (error) {
         console.error('Delete post failed', error);
         displayError(error.message);
@@ -41,6 +49,7 @@ const handleLike = async (e) => {
     try {
         console.log('Like Begin');
         setLikeCount(prevCount => prevCount + 1)
+        displayStatus("Post Liked! 👍")
     } catch (error) {
         console.error('Like post failed', error);
         displayError(error.message);
@@ -48,10 +57,14 @@ const handleLike = async (e) => {
     };
 
   return (
+    
     <div className="blog">
         <div className="blog-title">
+            <div className="blog-profile-picture-container">
             <img className="blog-profile-picture" alt='Profile Pic' src="/assets/DefaultProfilePic.png"></img>
+            </div>
             <Link to={`/blog/${blog.id}`}>{blog.title}</Link>
+           <div className='empty-box'> </div>
         </div>
         <div className="blog-info">
         <div className="blog-author">
@@ -82,7 +95,9 @@ const handleLike = async (e) => {
             </div>}
         </div>
         {error && <p className='errorText'>{error}</p>}
+        {status && <p className='statusText'>{status}</p>}
     </div>
+    
   )
 }
 

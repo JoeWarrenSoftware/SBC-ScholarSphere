@@ -9,6 +9,7 @@ const BlogEdit = () => {
   const [blogTitle, setBlogTitle] = useState([]);
   const [blogBody, setBlogBody] = useState([]);
   const [error, setError] = useState('');
+  const [status, setStatus] = useState('');
   const { id } = useParams();
 
   useEffect(() => {
@@ -40,12 +41,20 @@ const BlogEdit = () => {
     }, 3000);
 };
 
+const displayStatus = (message) => {
+  setStatus(message);
+  setTimeout(() => {
+      setStatus('');
+  }, 3000);
+};
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await api.post('/post/add/', { title: blogTitle, text: blogBody });
-      navigate('/');
+      await api.put(`/post/update/${id}/`, { title: blogTitle, text: blogBody });
+      /* navigate('/'); */
+      displayStatus('Blog Post Editted Successfully!')
     } catch (error) {
       console.error('Edit post failed', error);
       displayError(error.message);
@@ -53,7 +62,7 @@ const BlogEdit = () => {
   };
 
   return (
-    <>
+    <div className="content">
     <form className="blog-edit" onSubmit={handleSubmit}>
       <h2>Edit Blog Post</h2>
       <input
@@ -72,9 +81,10 @@ const BlogEdit = () => {
         cols="50"
       />
       {error && <p className='errorText'>{error}</p>}
-      <button type="submit">Edit Post</button>
+      {status && <p className='statusText'>{status}</p>}
+      <button type="submit" onClick={handleSubmit}>Edit Post</button>
     </form>
-    </>
+    </div>
   );
 };
 
