@@ -64,7 +64,7 @@ const handleLike = async (e) => {
             <img className="blog-profile-picture" alt='Profile Pic' src="/assets/DefaultProfilePic.png"></img>
             </div>
             <Link to={`/blog/${blog.id}`}>{blog.title}</Link>
-           
+           <div className='empty-box'> </div>
         </div>
         <div className="blog-info">
         <div className="blog-author">

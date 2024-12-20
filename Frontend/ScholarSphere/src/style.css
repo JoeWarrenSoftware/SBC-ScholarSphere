@@ -358,41 +358,51 @@ form button:hover {
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     width: 80%;
     margin: 10px 10px;
+    justify-content: center;
 }
 
 .blog-list{
     width: 100%;
-
 }
+
+.blog .blog-title { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+   
+   
+}
+
 
 .blog-profile-picture-container {
-    width: 4rem;
-    display: flex;
+    flex: 1 1 calc(25% - 20px);
+    box-sizing: border-box;
+    text-align: center;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: center;
-    margin: 1rem;
-
-}
-
-.blog-title { 
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding-right: 4rem;
-    width: 80%;
+    justify-content:center;
     
+
 }
+
+.empty-box {
+    flex: 1 1 calc(25% - 20px);
+    box-sizing: border-box;
+    text-align: center;
+}
+
 
 .blog-title a {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex: 1 1 calc(50% - 20px);
+    box-sizing: border-box;
+    text-align: center;
     font-size: 45px;
     font-weight: bold;
-    
+   
     color: var(--blog-font-color);
-   padding-top: 1.5rem;
+   
    
 }
 
@@ -400,7 +410,8 @@ form button:hover {
     flex-wrap: wrap;
     font-size: 45px;
     font-weight: bold;
-    
+    justify-content: center;
+    align-items: center;
     color: var(--blog-font-color-visited);
    padding-top: 1.5rem;
 }
@@ -409,7 +420,8 @@ form button:hover {
     flex-wrap: wrap;
     font-size: 45px;
     font-weight: bold;
-    
+    justify-content: center;
+    align-items: center;
     color: var(--blog-font-color-hover);
     padding-top: 1.5rem;
     cursor: pointer;
@@ -417,8 +429,8 @@ form button:hover {
 } 
 
 img.blog-profile-picture {
-    height: 50px;
-    width: 50px;
+    height: 75px;
+    width: 75px;
 }
 
 .blog-info {
@@ -578,6 +590,7 @@ footer {
     
 
     .blog-title {
+        flex-direction: column;
     font-size: 35px;
     display: flex;
     flex-wrap: wrap;
