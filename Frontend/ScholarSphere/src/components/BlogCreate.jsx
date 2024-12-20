@@ -8,6 +8,7 @@ const BlogCreate = () => {
   const [blogBody, setBlogBody] = useState([]);
   const [error, setError] = useState('');
 
+  const navigate = useNavigate();
   const displayError = (message) => {
     setError(message);
     setTimeout(() => {
@@ -23,7 +24,7 @@ const BlogCreate = () => {
       navigate('/');
     } catch (error) {
       console.error('Create post failed', error);
-      displayError(error);
+      displayError(error.message);
     }
   };
 
