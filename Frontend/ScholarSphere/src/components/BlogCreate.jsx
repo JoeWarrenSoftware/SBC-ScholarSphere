@@ -38,7 +38,7 @@ const displayStatus = (message) => {
   };
 
   return (
-    <>
+    <div className="content">
     <form className="blog-create" onSubmit={handleSubmit}>
       <h2>Create Blog Post</h2>
       <input
@@ -60,7 +60,7 @@ const displayStatus = (message) => {
       {status && <p className='statusText'>{status}</p>}
       <button type="submit">Create Post</button>
     </form>
-    </>
+    </div>
   );
 };
 

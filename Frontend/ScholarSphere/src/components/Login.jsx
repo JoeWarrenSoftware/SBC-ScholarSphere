@@ -56,7 +56,7 @@ const Login = () => {
   };
 
   return (
-    <>
+    <div className="content">
     <form onSubmit={handleSubmit}>
       <h2>Login</h2>
       <input
@@ -77,11 +77,13 @@ const Login = () => {
       {status && <p className='statusText'>{status}</p>}
       <button type="submit">Login</button>
     </form>
-    <div>
-      <label>Need an account?</label>
-      <a href='/signup'>Create Account Here</a>
+    <div className='already-registered-container'>
+      <label className='already-registered'>Need an account?</label>
+        <div className='nav-buttons'>
+          <a href='/signup'>Create Account</a>
+        </div>
+      </div>
     </div>
-    </>
   );
 };
 

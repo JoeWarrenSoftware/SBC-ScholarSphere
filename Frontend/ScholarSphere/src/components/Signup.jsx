@@ -56,7 +56,7 @@ const displayStatus = (message) => {
   };
 
   return (
-    <>
+    <div className="content">
     <form className="signup" onSubmit={handleSubmit}>
       <h2>Account Registration</h2>
       <input
@@ -105,11 +105,13 @@ const displayStatus = (message) => {
       {status && <p className='statusText'>{status}</p>}
       <button type="submit">Create Account</button>
     </form>
-    <div>
-      <label>Already registered?</label>
-      <a href="/login">Login Here</a>
+    <div className='already-registered-container'>
+      <label className='already-registered'>Already registered?</label>
+      <div className='nav-buttons'>
+        <a href="/login">Login </a>
+        </div>
+      </div>
     </div>
-    </>
   );
 };
 

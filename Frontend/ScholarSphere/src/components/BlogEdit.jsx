@@ -62,7 +62,7 @@ const displayStatus = (message) => {
   };
 
   return (
-    <>
+    <div className="content">
     <form className="blog-edit" onSubmit={handleSubmit}>
       <h2>Edit Blog Post</h2>
       <input
@@ -84,7 +84,7 @@ const displayStatus = (message) => {
       {status && <p className='statusText'>{status}</p>}
       <button type="submit" onClick={handleSubmit}>Edit Post</button>
     </form>
-    </>
+    </div>
   );
 };
 
