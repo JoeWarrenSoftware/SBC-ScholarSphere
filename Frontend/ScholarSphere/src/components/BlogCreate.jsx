@@ -29,7 +29,7 @@ const BlogCreate = () => {
   };
 
   return (
-    <>
+    <div className="content">
     <form className="blog-create" onSubmit={handleSubmit}>
       <h2>Create Blog Post</h2>
       <input
@@ -50,7 +50,7 @@ const BlogCreate = () => {
       {error && <p className='errorText'>{error}</p>}
       <button type="submit">Create Post</button>
     </form>
-    </>
+    </div>
   );
 };
 

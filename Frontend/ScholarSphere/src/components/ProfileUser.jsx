@@ -52,7 +52,7 @@ const ProfileUser = () => {
   };
 
   return (
-    <div>
+    <div className='content'>
       <form className="profile" onSubmit={handleSubmit}>
       <h2>My Profile</h2>
       <input

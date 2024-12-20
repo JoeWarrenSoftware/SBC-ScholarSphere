@@ -29,7 +29,7 @@ const BlogDetails = () => {
   }, []);
 
   return (
-    <div>
+    <div className='content'>
       <h2>Blog Post Display</h2>
       { blog && <div className="blog-list">
           <BlogPost blog={blog} showLike={true} showEdit={true} showDelete={true}/>

@@ -48,10 +48,14 @@ const handleLike = async (e) => {
     };
 
   return (
+    
     <div className="blog">
         <div className="blog-title">
+            <div className="blog-profile-picture-container">
             <img className="blog-profile-picture" alt='Profile Pic' src="/assets/DefaultProfilePic.png"></img>
+            </div>
             <Link to={`/blog/${blog.id}`}>{blog.title}</Link>
+           
         </div>
         <div className="blog-info">
         <div className="blog-author">
@@ -83,6 +87,7 @@ const handleLike = async (e) => {
         </div>
         {error && <p className='errorText'>{error}</p>}
     </div>
+    
   )
 }
 
