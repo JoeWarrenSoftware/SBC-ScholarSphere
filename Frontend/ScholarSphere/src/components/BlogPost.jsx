@@ -35,7 +35,7 @@ const handleDelete = async (e) => {
 
     try {
         console.log('Delete Post Begin');
-        await api.delete(`post/delete/${blog.id}/'`, { });
+        await api.delete(`post/delete/${blog.id}/`, { });
         displayStatus("Post Deleted Successfully!")
     } catch (error) {
         console.error('Delete post failed', error);

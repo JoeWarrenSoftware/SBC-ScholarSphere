@@ -29,7 +29,7 @@ const displayStatus = (message) => {
 
     try {
       await api.post('/post/add/', { title: blogTitle, text: blogBody });
-      displayStatus('Blog Created Successfully!')
+      displayStatus('Blog Post Created Successfully!')
       /* navigate('/'); */
     } catch (error) {
       console.error('Create post failed', error);
