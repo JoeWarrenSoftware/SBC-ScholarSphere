@@ -78,7 +78,8 @@ useEffect(() => {
           first_name: firstName,
           last_name: lastName,
           department: department,
-          bio: bio, twitter: twitter,
+          bio: bio,
+          twitter: twitter,
           linkedIn: linkedIn,
           facebook: facebook,
           profile_pic_url: profilePic });
@@ -147,28 +148,28 @@ useEffect(() => {
       />
       <label>X / Twitter:</label>
       <input
-        type="string"
+        type="url"
         placeholder="Twitter"
         value={twitter}
         onChange={(e) => setTwitter(e.target.value)}
       />
       <label>LinkedIn</label>
       <input
-        type="string"
+        type="url"
         placeholder="LinkedIn"
         value={linkedIn}
         onChange={(e) => setLinkedIn(e.target.value)}
       />
       <label>Facebook</label>
       <input
-        type="string"
+        type="url"
         placeholder="Facebook"
         value={facebook}
         onChange={(e) => setFacebook(e.target.value)}
       />
       <label>Profile Picture URL</label>
       <input
-        type="string"
+        type="url"
         placeholder="Profile Picture URL"
         value={profilePic}
         onChange={(e) => setProfilePic(e.target.value)}
